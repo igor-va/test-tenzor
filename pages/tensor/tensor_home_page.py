@@ -7,7 +7,7 @@ class TensorHomePage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def wait_load_tensor_banner(self):
-        BasePage.wait_load_element(self, element=TensorHomeLocators.loc_tensor_banner)
+    def verify_block_people_power(self):
+        return BasePage.element_status_displayed(self, element=TensorHomeLocators.loc_block_people_power)
 
 

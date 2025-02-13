@@ -9,7 +9,7 @@ def fixture_setup(request):
     if request.param == "Chrome":
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--start-maximized")
-        # chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--headless")
         driver = webdriver.Chrome(options=chrome_options)
     elif request.param == "Firefox":
         firefox_options = webdriver.FirefoxOptions()

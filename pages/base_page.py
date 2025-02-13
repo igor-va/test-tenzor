@@ -40,8 +40,3 @@ class BasePage:
     def get_page_title(self):
         return self.driver.title
 
-    def get_current_url(self, tab):
-        self.driver.switch_to.window(tab)
-        return self.driver.current_url
-
-

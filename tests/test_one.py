@@ -2,12 +2,10 @@ import pytest
 import allure
 import time
 
-from pages.base_page import BasePage
 from pages.saby.saby_home_page import SabyHomePage
 from pages.saby.saby_contacts_page import SabyContactsPage
 from pages.tensor.tensor_home_page import TensorHomePage
 from configurations.test_data import *
-# from Info.Titles import Titles
 
 
 @allure.feature("Тестовое задание")
@@ -20,19 +18,19 @@ class TestOne:
     def test_one(self, fixture_setup) -> None:
         """Первый сценарий тестового задания"""
         self.driver = fixture_setup
-        with allure.step(f"Перейти на https://sbis.ru/ в раздел 'Контакты'"):
+        with allure.step(f"1. Перейти на https://sbis.ru/ в раздел 'Контакты'"):
             self.driver.get(TestDataSaby.URL)
             SabyHomePage(self.driver).click_item_contacts()
-        with allure.step(f"Найти баннер 'Тензор', кликнуть по нему"):
+        with allure.step(f"2. Найти баннер 'Тензор', кликнуть по нему"):
             SabyContactsPage(self.driver).click_item_tensor_logo()
-        with allure.step(f"Перейти на https://tensor.ru/"):
-            # tabs = self.driver.window_handles
-            # self.driver.switch_to.window(tabs[1])
+        with allure.step(f"3. Перейти на https://tensor.ru/"):
+            tabs = self.driver.window_handles
+            self.driver.switch_to.window(tabs[1])
+        with allure.step(f"4. Проверить, что есть блок 'Сила в людях'"):
+            assert TensorHomePage(self.driver).verify_block_people_power(), \
+                f"Блок 'Сила в людях' не найден на странице {self.driver.current_url}"
 
-            TensorHomePage(self.driver).wait_load_tensor_banner()
-            current_url = self.driver.current_url
-            assert current_url == TestDataTensor.URL, \
-                f"Текущий 'URL' должен быть {TestDataTensor.URL}, но получен {current_url}"
+
 
             time.sleep(5)
 
