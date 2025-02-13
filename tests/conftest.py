@@ -2,7 +2,7 @@ import pytest
 from selenium import webdriver
 
 
-@pytest.fixture(params=['Chrome'], scope="class")
+@pytest.fixture(params=['Firefox'], scope="class")
 def fixture_setup(request):
     """Return driver browser"""
     driver = None
