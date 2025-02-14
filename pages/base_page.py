@@ -4,7 +4,7 @@ from locators.base_locators import BaseLocators
 
 
 class BasePage:
-    """Базовый класс общих действий пользователя на странице"""
+    """Базовый класс общих действий на странице"""
 
     def __init__(self, driver):
         self.driver = driver
@@ -25,15 +25,23 @@ class BasePage:
 
     def get_text_element(self, element) -> str:
         """Получение текст элемента"""
-        return WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(element)).text
+        text_element = WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(element)).text
+        return text_element
 
     def element_status_enabled(self, element) -> bool:
         """Проверка присутствия элемента на странице"""
-        return WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(element)).is_enabled()
+        status = WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(element)).is_enabled()
+        return status
 
     def element_status_displayed(self, element) -> bool:
         """Проверка отображения элемента на странице"""
-        return WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(element)).is_displayed()
+        status = WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(element)).is_displayed()
+        return status
+
+    def get_all_elements(self, element):
+        """Получение всех подходящих элементов"""
+        all_elements = WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_all_elements_located(element))
+        return all_elements
 
     def get_page_title(self) -> str:
         """Получение названия текущей страницы"""
@@ -42,4 +50,3 @@ class BasePage:
     def get_current_url(self) -> str:
         """Получение URL текущей страницы"""
         return self.driver.current_url
-

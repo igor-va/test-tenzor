@@ -8,6 +8,7 @@ class SabyHomePage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def click_item_contacts(self):
+    def click_item_contacts(self) -> None:
+        """Переход на страницу 'Контакты"""
         BasePage.action_click(self, element=SabyHomeLocators.loc_contacts_head_preview)
         BasePage.action_click(self, element=SabyHomeLocators.loc_contacts_head)
