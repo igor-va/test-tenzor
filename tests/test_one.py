@@ -32,9 +32,10 @@ class TestClass:
                 f"Блок 'Сила в людях' не найден на странице {self.driver.current_url}"
         with allure.step(f"5. Перейдите в этом блоке в 'Подробнее' и убедитесь, что откроется https://tensor.ru/about"):
             tensor_home_page.click_item_block_people_power_about()
-            # current_url = self.driver.current_url
             current_url = tensor_home_page.get_current_url()
             assert current_url == TestDataTensor.URL_ABOUT
+        with allure.step(f"6. Находим раздел 'Работаем' и проверяем, что у всех фотографии хронологии \
+                        одинаковые высота (height) и ширина (width)"):
 
 
 

@@ -3,6 +3,7 @@ from locators.tensor.tensor_home_locators import TensorHomeLocators
 
 
 class TensorHomePage(BasePage):
+    """Класс для хранений действий на сайте 'Tensor' страницы 'TensorHomePage"""
 
     def __init__(self, driver):
         super().__init__(driver)

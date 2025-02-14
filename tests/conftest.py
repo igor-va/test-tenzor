@@ -4,7 +4,7 @@ from selenium import webdriver
 
 @pytest.fixture(params=['Firefox'], scope="class")
 def fixture_setup(request):
-    """Return driver browser"""
+    """Создание драйвера браузера"""
     driver = None
     if request.param == "Chrome":
         chrome_options = webdriver.ChromeOptions()
