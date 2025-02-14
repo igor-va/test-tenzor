@@ -5,7 +5,8 @@ import time
 from pages.saby.saby_home_page import SabyHomePage
 from pages.saby.saby_contacts_page import SabyContactsPage
 from configurations.test_data import *
-from info.regions import *
+from info.regions import Regions
+from info.partners import Partners
 
 
 @allure.feature("Тестовое задание")
@@ -23,12 +24,14 @@ class TestClass:
         with allure.step(f"1. Перейти на https://sbis.ru/ в раздел 'Контакты'"):
             self.driver.get(TestDataSaby.URL_HOME)
             SabyHomePage(self.driver).click_item_contacts()
-        with allure.step(f"2. Проверить, что определился ваш регион (г. Санкт-Петербург) и есть список партнеров"):
+        with (allure.step(f"2. Проверить, что определился ваш регион (г. Санкт-Петербург) и есть список партнеров")):
             saby_contacts_page = SabyContactsPage(self.driver)
-            local_region = saby_contacts_page.get_local_region()
-            assert local_region == Regions.spb_region, f"Местный регион отображается некорректно"
-            assert saby_contacts_page.verify_block_partners_displayed, \
-                f"Блок 'Список партнеров' не найден на странице {saby_contacts_page.get_current_url()}"
+            name_local_region = saby_contacts_page.get_name_local_region()
+            assert name_local_region == Regions.spb_region, \
+                f"Название местного региона определяется некорректно"
+            name_local_partner = saby_contacts_page.get_name_local_partner()
+            assert name_local_partner == Partners.spb_partner, \
+                f"Блок 'Список партнеров' местного региона не найден на странице"
 
 
         time.sleep(2)

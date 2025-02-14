@@ -6,4 +6,4 @@ class SabyContactsLocators:
 
     loc_tensor_logo = (By.XPATH, "//div[@id='contacts_clients']//a[@title='tensor.ru']")
     loc_block_local_region = (By.XPATH, "//span[@class='sbis_ru-Region-Chooser__text sbis_ru-link']")
-    loc_block_partners = (By.XPATH, "//div[@class='ws-flexbox sbisru-Contacts-City__flex sbisru-Contacts-Shot'']")
+    loc_block_partners = (By.XPATH, "//div[contains(text(), 'Saby - Санкт-Петербург')]")

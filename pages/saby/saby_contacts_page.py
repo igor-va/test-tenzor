@@ -12,8 +12,8 @@ class SabyContactsPage(BasePage):
         """Переход на сайт 'Tensor'"""
         BasePage.action_click(self, element=SabyContactsLocators.loc_tensor_logo)
 
-    def get_local_region(self) -> str:
-        """Получение текста местного региона"""
+    def get_name_local_region(self) -> str:
+        """Получение названия местного региона"""
         status_displayed = BasePage.element_status_displayed(self, element=SabyContactsLocators.loc_block_local_region)
         if status_displayed:
             text_element = BasePage.get_text_element(self, element=SabyContactsLocators.loc_block_local_region)
@@ -21,6 +21,7 @@ class SabyContactsPage(BasePage):
         else:
             return ""
 
-    def verify_block_partners_displayed(self) -> bool:
-        """Проверка отображения блока 'Список партнеров'"""
-        return BasePage.element_status_displayed(self, element=SabyContactsLocators.loc_block_partners)
+    def get_name_local_partner(self) -> str:
+        """Получение названия местного партнера"""
+        text_element = BasePage.get_text_element(self, element=SabyContactsLocators.loc_block_partners)
+        return text_element
