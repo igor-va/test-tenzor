@@ -2,9 +2,11 @@ import os
 
 
 class TestDataSaby:
-    URL = "https://saby.ru/"
-    URL_CONTACTS = URL + "contacts/"
+    URL_HOME = "https://saby.ru"
+    URL_CONTACTS = URL_HOME + "/contacts"
 
 
 class TestDataTensor:
-    URL = "https://tensor.ru/"
+    URL_HOME = "https://tensor.ru"
+    URL_ABOUT = URL_HOME + "/about"
+
