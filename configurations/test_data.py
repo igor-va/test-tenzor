@@ -6,7 +6,7 @@ class TestDataSaby:
 
     URL_HOME = "https://saby.ru"
     URL_CONTACTS = URL_HOME + "/contacts"
-
+    URL_CONTACTS_KAMCHATKA = URL_CONTACTS + "/41-kamchatskij-kraj"
 
 class TestDataTensor:
     """Данные сайта 'Tensor'"""

@@ -12,8 +12,8 @@ class SabyContactsPage(BasePage):
         """Переход на сайт 'Tensor'"""
         BasePage.action_click(self, element=SabyContactsLocators.loc_tensor_logo)
 
-    def get_name_local_region(self) -> str:
-        """Получение названия местного региона"""
+    def get_name_current_region(self) -> str:
+        """Получение названия текущего региона"""
         status_displayed = BasePage.element_status_displayed(self, element=SabyContactsLocators.loc_block_region_chooser)
         if status_displayed:
             text_element = BasePage.get_text_element(self, element=SabyContactsLocators.loc_block_region_chooser)
@@ -26,7 +26,12 @@ class SabyContactsPage(BasePage):
         BasePage.action_click(self, element=SabyContactsLocators.loc_block_region_chooser)
         BasePage.action_click(self, element=SabyContactsLocators.loc_block_region_kamchatka)
 
-    def get_name_local_partner(self) -> str:
-        """Получение названия местного партнера"""
-        text_element = BasePage.get_text_element(self, element=SabyContactsLocators.loc_block_partners)
+    def get_name_spb_partner(self) -> str:
+        """Получение названия партнера в Санкт-Петербурге"""
+        text_element = BasePage.get_text_element(self, element=SabyContactsLocators.loc_block_spb_partner)
+        return text_element
+
+    def get_name_kamchatka_partner(self) -> str:
+        """Получение названия партнера в Камчатском Крае"""
+        text_element = BasePage.get_text_element(self, element=SabyContactsLocators.loc_block_kamchatka_partner)
         return text_element

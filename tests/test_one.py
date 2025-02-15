@@ -37,7 +37,7 @@ class TestClass:
             current_url = tensor_home_page.get_current_url()
             assert current_url == TestDataTensor.URL_ABOUT, \
                 f"URL страницы не соответствует https://tensor.ru/about"
-        with allure.step(f"6. Находим раздел 'Работаем' и проверяем, что у всех фотографии хронологии \
-                              одинаковые высота (height) и ширина (width)"):
+        with allure.step(f"6. Находим раздел 'Работаем' и проверяем, что у всех фотографии хронологии "
+                         f"одинаковые высота (height) и ширина (width)"):
             assert TensorAboutPage(self.driver).verify_block_work_images_same_size(), \
                 f"Фотографии хронологии в разделе 'Работаем' имеют разные высота (height) и ширина (width)"
