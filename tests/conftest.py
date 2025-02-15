@@ -3,7 +3,7 @@ import pytest
 from selenium import webdriver
 
 
-@pytest.fixture(params=['Firefox'], scope='class')
+@pytest.fixture(params=['Chrome', 'Firefox'], scope='class')
 def fixture_setup(request):
     """Создание драйвера браузера"""
 
@@ -21,7 +21,7 @@ def fixture_setup(request):
         }
         chrome_options.add_experimental_option('prefs', prefs)
         chrome_options.add_argument('--start-maximized')
-        # chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--headless')
         driver = webdriver.Chrome(options=chrome_options)
 
     # Настройка драйвера 'Firefox'
@@ -31,7 +31,7 @@ def fixture_setup(request):
         firefox_options.set_preference("browser.download.dir", download_dir)  # Папка для загрузки
         firefox_options.set_preference("browser.helperApps.neverAsk.saveToDisk",
                                        "application/octet-stream,application/x-msdownload")  # MIME-тип '.exe' файлов
-        # firefox_options.add_argument('--headless')
+        firefox_options.add_argument('--headless')
         driver = webdriver.Firefox(options=firefox_options)
         driver.maximize_window()
 

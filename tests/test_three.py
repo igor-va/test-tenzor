@@ -24,7 +24,10 @@ class TestClass:
         with allure.step(f"2. В Footer'e найти и перейти 'Скачать локальные версии'"):
             SabyHomePage(self.driver).click_item_footer_download_page()
         with allure.step(f"3. Скачать СБИС Плагин для windows, веб-установщик в папку с данным тестом"):
-            SabyDownloadPage(self.driver).click_item_plugin_web_installer()
+            saby_download_page = SabyDownloadPage(self.driver)
+            saby_download_page.click_item_plugin_web_installer()
+        with allure.step(f"4. Убедиться, что плагин скачался"):
+            assert saby_download_page.verify_file_exist(), "Скачанный файл в каталоге не найден"
 
 
         # time.sleep(10)
