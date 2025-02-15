@@ -32,6 +32,7 @@ class TestClass:
             name_local_partner = saby_contacts_page.get_name_local_partner()
             assert name_local_partner == Partners.spb_partner, \
                 f"Блок 'Список партнеров' местного региона не найден на странице"
-
+        with allure.step(f"3. Изменить регион на Камчатский край"):
+            saby_contacts_page.change_region_to_kamchatka()
 
         time.sleep(2)
