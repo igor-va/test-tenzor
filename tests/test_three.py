@@ -1,6 +1,5 @@
 import pytest
 import allure
-import time
 
 from pages.saby.saby_home_page import SabyHomePage
 from pages.saby.saby_download_page import SabyDownloadPage
@@ -27,7 +26,7 @@ class TestClass:
             saby_download_page = SabyDownloadPage(self.driver)
             saby_download_page.click_item_plugin_web_installer()
         with allure.step(f"4. Убедиться, что плагин скачался"):
-            assert saby_download_page.verify_file_exist(), "Скачанный файл в каталоге не найден"
-
-
-        # time.sleep(10)
+            assert saby_download_page.verify_file_download_exist(), "Скачанный файл в каталоге не найден"
+        with allure.step(f"5. Сравнить размер файла в мегабайтах, он должен совпадать с указанным на сайте"):
+            assert saby_download_page.verify_file_size(), \
+                f"Размер скачанного файла не совпадает с размером указанным на сайте "

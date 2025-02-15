@@ -21,8 +21,19 @@ def wait_for_download_file(work_dir, file_ext='.exe') -> None:
         time.sleep(0.5)
 
 
-def file_exists(directory, filename) -> bool:
+def verify_file_exist(directory, filename) -> bool:
     """Проверка существования файла"""
     file_path = os.path.join(directory, filename)
     file_status = os.path.isfile(file_path)
     return file_status
+
+
+def get_file_size_in_mb(directory, filename) -> str:
+    """Получение размера файла"""
+    file_path = os.path.join(directory, filename)
+    file_size_bytes = os.path.getsize(file_path)  # Получаем размер файла в байтах
+    file_size_mb = file_size_bytes / (1024 * 1024)  # Переводим размер в мегабайты
+    file_size_mb_str = f'{file_size_mb:.2f}'  # Округляем размер до сотых
+    return file_size_mb_str
+
+

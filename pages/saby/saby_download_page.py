@@ -17,10 +17,19 @@ class SabyDownloadPage(BasePage):
         BasePage.action_click(self, element=SabyDownloadLocators.loc_plugin_web_installer)
         wait_for_download_file(self.current_dir)  # Ожидание загрузки файла
 
-    def verify_file_exist(self) -> bool:
+    def verify_file_download_exist(self) -> bool:
         """Проверка существования скачанного файла"""
-        file_status = file_exists(self.current_dir, Plugins.web_installer_name)
+        file_status = verify_file_exist(self.current_dir, Plugins.web_installer_name)
         if file_status:
+            return True
+        else:
+            return False
+
+    def verify_file_size(self) -> bool:
+        """Проверка размера скачанного файла с указанным размером на сайте"""
+        file_name = BasePage.get_text_element(self, element=SabyDownloadLocators.loc_plugin_web_installer)
+        file_size = get_file_size_in_mb(self.current_dir, Plugins.web_installer_name)
+        if file_size in file_name:
             return True
         else:
             return False
