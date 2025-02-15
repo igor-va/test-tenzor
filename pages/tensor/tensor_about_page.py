@@ -3,7 +3,7 @@ from locators.tensor.tensor_about_locators import TensorAboutLocators
 
 
 class TensorAboutPage(BasePage):
-    """Класс для хранений действий на сайте 'Tensor' страницы 'TensorAboutPage"""
+    """Класс для хранений действий на сайте 'Tensor' страницы 'О компании"""
 
     def __init__(self, driver):
         super().__init__(driver)

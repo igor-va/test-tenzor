@@ -22,7 +22,7 @@ class TestClass:
         self.driver = fixture_setup
         with allure.step(f"1. Перейти на https://sbis.ru/ в раздел 'Контакты'"):
             self.driver.get(TestDataSaby.URL_HOME)
-            SabyHomePage(self.driver).click_item_contacts()
+            SabyHomePage(self.driver).click_item_contacts_page()
         with allure.step(f"2. Найти баннер 'Тензор', кликнуть по нему"):
             SabyContactsPage(self.driver).click_item_tensor_logo()
         with allure.step(f"3. Перейти на https://tensor.ru/"):

@@ -1,6 +1,5 @@
 import pytest
 import allure
-import time
 
 from pages.saby.saby_home_page import SabyHomePage
 from pages.saby.saby_contacts_page import SabyContactsPage
@@ -24,7 +23,7 @@ class TestClass:
         self.driver = fixture_setup
         with allure.step(f"1. Перейти на https://sbis.ru/ в раздел 'Контакты'"):
             self.driver.get(TestDataSaby.URL_HOME)
-            SabyHomePage(self.driver).click_item_contacts()
+            SabyHomePage(self.driver).click_item_contacts_page()
         with (allure.step(f"2. Проверить, что определился ваш регион (г. Санкт-Петербург) и есть список партнеров")):
             saby_contacts_page = SabyContactsPage(self.driver)
             name_current_region = saby_contacts_page.get_name_current_region()
@@ -49,5 +48,3 @@ class TestClass:
             current_title = saby_contacts_page.get_page_title()
             assert current_title == SabyTitles.kamchatka_title, \
                 f"Название заголовка текущей страницы сайта не соответствует ожидаемому"
-
-        time.sleep(2)

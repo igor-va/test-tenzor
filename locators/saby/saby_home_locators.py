@@ -2,7 +2,11 @@ from selenium.webdriver.common.by import By
 
 
 class SabyHomeLocators:
-    """Локаторы для сайта 'Saby' страницы 'SabyHomePage'"""
+    """Локаторы для сайта 'Saby' страницы 'Домашняя'"""
 
-    loc_contacts_head = (By.LINK_TEXT, "Еще 25 офисов в регионе")
+    # Страница 'Контакты'
     loc_contacts_head_preview = (By.XPATH, "//div[contains(text(), 'Контакты')]")
+    loc_contacts_head = (By.PARTIAL_LINK_TEXT, 'Еще')
+
+    # Страница 'Скачать'
+    loc_download = (By.LINK_TEXT, 'Скачать локальные версии')

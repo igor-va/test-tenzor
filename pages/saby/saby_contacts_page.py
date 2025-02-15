@@ -3,7 +3,7 @@ from locators.saby.saby_contacts_locators import SabyContactsLocators
 
 
 class SabyContactsPage(BasePage):
-    """Класс для хранений действий на сайте 'Saby' страницы 'SabyContactsPage"""
+    """Класс для хранений действий на сайте 'Saby' страницы 'Контакты"""
 
     def __init__(self, driver):
         super().__init__(driver)
