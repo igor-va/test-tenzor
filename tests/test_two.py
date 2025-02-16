@@ -23,9 +23,10 @@ class TestClass:
         self.driver = fixture_setup
         with allure.step(f"1. Перейти на https://sbis.ru/ в раздел 'Контакты'"):
             self.driver.get(TestDataSaby.URL_HOME)
-            SabyHomePage(self.driver).click_item_contacts_page()
+            SabyHomePage(self.driver).click_item_to_contacts_page()
         with (allure.step(f"2. Проверить, что определился ваш регион (г. Санкт-Петербург) и есть список партнеров")):
             saby_contacts_page = SabyContactsPage(self.driver)
+            saby_contacts_page.change_region_to_spb()
             name_current_region = saby_contacts_page.get_name_current_region()
             assert name_current_region == Regions.spb_region, \
                 f"Название текущего региона определяется некорректно"

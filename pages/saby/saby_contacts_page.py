@@ -8,7 +8,7 @@ class SabyContactsPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def click_item_tensor_logo(self) -> None:
+    def click_item_tensor_logo_to_tensor_site(self) -> None:
         """Переход на сайт 'Tensor'"""
         BasePage.action_click(self, element=SabyContactsLocators.loc_tensor_logo)
 
@@ -20,6 +20,11 @@ class SabyContactsPage(BasePage):
             return text_element
         else:
             return ""
+
+    def change_region_to_spb(self) -> None:
+        """Изменить регион на Санкт-Петербург"""
+        BasePage.action_click(self, element=SabyContactsLocators.loc_block_region_chooser)
+        BasePage.action_click(self, element=SabyContactsLocators.loc_block_region_spb)
 
     def change_region_to_kamchatka(self) -> None:
         """Изменить регион на Камчатский край"""

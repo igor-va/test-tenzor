@@ -29,11 +29,9 @@ def verify_file_exist(directory, filename) -> bool:
 
 
 def get_file_size_in_mb(directory, filename) -> str:
-    """Получение размера файла"""
+    """Получение размера файла в мегабайтах"""
     file_path = os.path.join(directory, filename)
     file_size_bytes = os.path.getsize(file_path)  # Получаем размер файла в байтах
     file_size_mb = file_size_bytes / (1024 * 1024)  # Переводим размер в мегабайты
     file_size_mb_str = f'{file_size_mb:.2f}'  # Округляем размер до сотых
     return file_size_mb_str
-
-

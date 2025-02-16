@@ -21,7 +21,7 @@ class TestClass:
         with allure.step(f"1. Перейти на https://sbis.ru/"):
             self.driver.get(TestDataSaby.URL_HOME)
         with allure.step(f"2. В Footer'e найти и перейти 'Скачать локальные версии'"):
-            SabyHomePage(self.driver).click_item_footer_download_page()
+            SabyHomePage(self.driver).click_item_footer_to_download_page()
         with allure.step(f"3. Скачать СБИС Плагин для windows, веб-установщик в папку с данным тестом"):
             saby_download_page = SabyDownloadPage(self.driver)
             saby_download_page.click_item_plugin_web_installer()

@@ -40,4 +40,3 @@ def fixture_setup(request):
 
     # Закрытие браузера
     driver.quit()
-

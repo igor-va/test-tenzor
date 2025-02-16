@@ -12,6 +12,6 @@ class TensorHomePage(BasePage):
         """Проверка отображения блока 'Сила в людях'"""
         return BasePage.element_status_displayed(self, element=TensorHomeLocators.loc_block_people_power)
 
-    def click_item_block_people_power_about(self) -> None:
+    def click_item_block_people_power_to_about_page(self) -> None:
         """Переход на страницу 'О компании"""
         BasePage.action_click(self, element=TensorHomeLocators.loc_block_people_power_about)

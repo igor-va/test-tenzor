@@ -9,6 +9,7 @@ class SabyContactsLocators:
 
     # Регионы
     loc_block_region_chooser = [By.XPATH, "//span[contains(@class, 'Region-Chooser')]"]
+    loc_block_region_spb = [By.XPATH, "//span[contains(text(), '78 Санкт-Петербург')]"]
     loc_block_region_kamchatka = [By.XPATH, "//span[contains(text(), '41 Камчатский край')]"]
 
     # Партнеры

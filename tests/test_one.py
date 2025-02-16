@@ -22,9 +22,9 @@ class TestClass:
         self.driver = fixture_setup
         with allure.step(f"1. Перейти на https://sbis.ru/ в раздел 'Контакты'"):
             self.driver.get(TestDataSaby.URL_HOME)
-            SabyHomePage(self.driver).click_item_contacts_page()
+            SabyHomePage(self.driver).click_item_to_contacts_page()
         with allure.step(f"2. Найти баннер 'Тензор', кликнуть по нему"):
-            SabyContactsPage(self.driver).click_item_tensor_logo()
+            SabyContactsPage(self.driver).click_item_tensor_logo_to_tensor_site()
         with allure.step(f"3. Перейти на https://tensor.ru/"):
             tabs = self.driver.window_handles
             self.driver.switch_to.window(tabs[1])
@@ -33,7 +33,7 @@ class TestClass:
             assert tensor_home_page.verify_block_people_power_displayed(), \
                 f"Блок 'Сила в людях' не найден на странице {self.driver.current_url}"
         with allure.step(f"5. Перейдите в этом блоке в 'Подробнее' и убедитесь, что откроется https://tensor.ru/about"):
-            tensor_home_page.click_item_block_people_power_about()
+            tensor_home_page.click_item_block_people_power_to_about_page()
             current_url = tensor_home_page.get_current_url()
             assert current_url == TestDataTensor.URL_ABOUT, \
                 f"URL страницы не соответствует https://tensor.ru/about"

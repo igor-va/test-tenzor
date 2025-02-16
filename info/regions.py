@@ -6,4 +6,3 @@ class Regions:
 
     spb_region = "г. Санкт-Петербург"
     kamchatka_region = "Камчатский край"
-
